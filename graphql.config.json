@@ -1,3 +1,9 @@
 {
-  "schema": "./src/typeDefs/**/*.gql"
+  "schema": "./src/typeDefs/**/*.gql",
+  "extensions": {
+    "codegen": {
+      "overwrite": true,
+      "generates": {}
+    }
+  }
 }
