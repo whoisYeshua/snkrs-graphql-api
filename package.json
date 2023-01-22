@@ -2,9 +2,19 @@
   "name": "snkrs-graphql-api",
   "version": "0.0.1",
   "description": "Simple SNKRS GraphQL API for upcomming releases",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsx src/index.ts",
+    "dev:watch": "tsx watch src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "npm run format:eslint && npm run format:prettier",
+    "format:eslint": "npm run lint:eslint -- --fix",
+    "format:prettier": "npm run lint:prettier -- --write",
+    "lint": "npm run lint:eslint && npm run lint:prettier && npm run lint:typescript",
+    "lint:eslint": "eslint \"**/*.{js,ts,[cm][jt]s}\" --debug",
+    "lint:prettier": "prettier \"**/*.{json,md,js,ts,[cm][jt]s}\" --check",
+    "lint:typescript": "tsc --noEmit",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -20,5 +30,30 @@
   "bugs": {
     "url": "https://github.com/whoisYeshua/snkrs-graphql-api/issues"
   },
-  "homepage": "https://github.com/whoisYeshua/snkrs-graphql-api#readme"
+  "homepage": "https://github.com/whoisYeshua/snkrs-graphql-api#readme",
+  "engines": {
+    "node": ">=16.13",
+    "npm": ">= 8.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.4.2",
+    "@commitlint/config-conventional": "^17.4.2",
+    "@types/node": "^18.11.18",
+    "@typescript-eslint/eslint-plugin": "^5.48.2",
+    "@typescript-eslint/parser": "^5.48.2",
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-import-resolver-typescript": "^3.5.3",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-unicorn": "^45.0.2",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.1.0",
+    "pino-pretty": "^9.1.1",
+    "prettier": "^2.8.3",
+    "tsx": "^3.12.2",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "fastify": "^4.12.0"
+  }
 }
