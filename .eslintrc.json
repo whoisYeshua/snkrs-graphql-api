@@ -40,7 +40,7 @@
     "import/order": [
       "warn",
       {
-        "groups": [["builtin", "external"], ["internal", "parent"], ["sibling", "index"], "type"],
+        "groups": [["builtin"], ["external"], ["internal", "parent"], ["sibling", "index"], "type"],
         "alphabetize": { "order": "desc", "caseInsensitive": true },
         "newlines-between": "always"
       }

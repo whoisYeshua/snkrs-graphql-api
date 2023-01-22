@@ -1,0 +1,14 @@
+type Query {
+  info: String!
+  "News feed"
+  feed: [Link!]!
+}
+
+"Hyperlink entity"
+type Link {
+  id: ID!
+  "Link description"
+  description: String!
+  "url"
+  url: String!
+}

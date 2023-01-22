@@ -1,23 +1,11 @@
-import Fastify from 'fastify'
+import { createServer } from 'node:http'
 
-const fastifyOptions = {
-  logger: {
-    transport: {
-      target: 'pino-pretty',
-      options: { destination: 1 },
-    },
-  },
-}
+import { createYoga } from 'graphql-yoga'
 
-const fastify = Fastify(fastifyOptions)
+import { schema } from './schema'
 
-fastify.get('/', (request, reply) => {
-  reply.send({ hello: 'build' })
-})
-
-fastify.listen({ port: 3000 }, err => {
-  if (err) {
-    fastify.log.error(err)
-    process.exit(1)
-  }
+const yoga = createYoga({ schema })
+const server = createServer(yoga)
+server.listen(4000, () => {
+  console.info('Server is running on http://localhost:4000/graphql')
 })
