@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "tsx src/index.ts",
     "dev:watch": "tsx watch src/index.ts",
+    "start": "npm run dev:watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "npm run format:eslint && npm run format:prettier",
     "format:eslint": "npm run lint:eslint -- --fix",
@@ -32,7 +33,7 @@
   },
   "homepage": "https://github.com/whoisYeshua/snkrs-graphql-api#readme",
   "engines": {
-    "node": ">=16.13",
+    "node": ">=18.13",
     "npm": ">= 8.1"
   },
   "devDependencies": {
