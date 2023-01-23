@@ -2,6 +2,47 @@ type Query {
   info: String!
   "News feed"
   feed: [Link!]!
+  product: [Product!]!
+  productById: Product
+  lastUpdateTime: String!
+}
+
+type Product {
+  id: ID!
+  slug: String!
+  title: String!
+  subtitle: String!
+  fullTitle: String!
+  models: [Model!]!
+}
+
+type Model {
+  id: ID!
+  name: String!
+  imageURL: String!
+  sizes: [Size!]!
+}
+
+type Launch {
+  method: String!
+  paymentMethod: String!
+  startEntryDate: String!
+}
+
+type Size {
+  id: ID!
+  size: String!
+  localeSize: String!
+  stockLevel: StockLevel!
+  available: Boolean!
+}
+
+enum StockLevel {
+  NA
+  OOS
+  LOW
+  MEDIUM
+  HIGH
 }
 
 "Hyperlink entity"
